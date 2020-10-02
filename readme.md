@@ -4,8 +4,6 @@
 
 In this lab, you will be using the [Sakila](https://dev.mysql.com/doc/sakila/en/) database of movie rentals.
 
-<br>
-
 ### Instructions
 
 1. Get all pairs of actors that worked together.
