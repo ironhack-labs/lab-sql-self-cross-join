@@ -44,5 +44,7 @@ ORDER BY
 
 
 -- 3.Get all possible pairs of actors and films.
-SELECT
+SELECT a.first_name, a.last_name, f.title
+	FROM sakila.actor a
+    CROSS JOIN sakila.film f
 ;
