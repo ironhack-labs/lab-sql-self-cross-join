@@ -86,6 +86,35 @@ inner join sakila.actor a1 on fa1.actor_id = a1.actor_id
 ;
 
 
+-- using function coutn to count the number of time a pair of actor is playing in a movie together
+SELECT
+    COUNT(f.film_id) AS film_count,
+    fa.actor_id AS Actor1,
+    a.first_name AS Name_Actor1,
+    a.last_name AS Last_Name_Actor1,
+    fa1.actor_id AS Second_Actor,
+    a1.first_name AS Name_Actor2,
+    a1.last_name AS Last_Name_Actor2
+FROM
+    sakila.film_actor fa
+LEFT JOIN
+    sakila.actor a ON fa.actor_id = a.actor_id
+LEFT JOIN
+    sakila.film f ON f.film_id = fa.film_id
+INNER JOIN
+    sakila.film_actor fa1 ON fa1.film_id = f.film_id
+                      AND fa.actor_id > fa1.actor_id
+INNER JOIN
+    sakila.actor a1 ON fa1.actor_id = a1.actor_id
+GROUP BY
+    
+    fa.actor_id,
+    a.first_name,
+    a.last_name,
+    fa1.actor_id,
+    a1.first_name,
+    a1.last_name;
+
 
 
 
